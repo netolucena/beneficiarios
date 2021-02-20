@@ -7,11 +7,13 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import br.com.netolucena.beneficiarios.model.Beneficiario;
 import br.com.netolucena.beneficiarios.model.BeneficiarioDTO;
 import br.com.netolucena.beneficiarios.repository.BeneficiarioRepository;
 
+@Service
 public class BeneficiarioServiceImpl implements BeneficiarioService  {
 	
 	@Autowired

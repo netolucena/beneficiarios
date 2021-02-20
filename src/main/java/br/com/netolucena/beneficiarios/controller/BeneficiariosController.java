@@ -47,4 +47,5 @@ public class BeneficiariosController {
 	 public ResponseEntity<BeneficiarioDTO> aportar(@PathVariable("id") Long id, @RequestBody BigDecimal valor) throws Exception {
 		 return ResponseEntity.ok(service.aportar(id, valor));
 	 }
+	 
 }
