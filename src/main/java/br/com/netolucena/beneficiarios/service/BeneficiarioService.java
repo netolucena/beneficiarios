@@ -20,7 +20,7 @@ public interface BeneficiarioService {
         
     public BeneficiarioDTO save(BeneficiarioDTO beneficiario);
     
-    public BeneficiarioDTO update(Long id, BeneficiarioDTO beneficiario);
+    public BeneficiarioDTO update(Long id, BeneficiarioDTO beneficiario) throws Exception;
     
     public BeneficiarioDTO aportar(Long idBeneficiario, BigDecimal valor) throws Exception;
 

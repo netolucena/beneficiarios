@@ -47,15 +47,34 @@ public class BeneficiarioServiceImpl implements BeneficiarioService  {
 	}
 
 	@Override
-	public BeneficiarioDTO update(Long id, BeneficiarioDTO beneficiarioDTO) {
-		// TODO Auto-generated method stub
-		return null;
+	public BeneficiarioDTO update(Long id, BeneficiarioDTO beneficiarioDTO) throws Exception {
+		Optional<Beneficiario> optional = repository.findById(id);
+		if (optional.isPresent()) {
+			Beneficiario beneficiario = optional.get();
+			beneficiario.setNome(beneficiarioDTO.getNome());
+			beneficiario.setEmail(beneficiarioDTO.getEmail());
+			beneficiario.setCpf(beneficiarioDTO.getCpf());
+			beneficiario.setQtdAnosRecebimentoAposentadoria(beneficiarioDTO.getQtdAnosRecebimentoAposentadoria());
+			beneficiario.setSaldoAposentadoria(beneficiarioDTO.getSaldoAposentadoria());
+						
+			return repository.save(beneficiario).toDTO();
+			
+		} else {
+			throw new Exception("Beneficiário não encontrado");
+		}		
 	}
 
 	@Override
-	public BeneficiarioDTO aportar(Long idBeneficiario, BigDecimal valor) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public BeneficiarioDTO aportar(Long id, BigDecimal valor) throws Exception {
+		Optional<Beneficiario> optional = repository.findById(id);		
+		if (optional.isPresent()) {
+			Beneficiario beneficiario = optional.get();
+			BigDecimal saldo = beneficiario.getSaldoAposentadoria().add(valor) ;
+			beneficiario.setSaldoAposentadoria(saldo);
+	        return repository.save(beneficiario).toDTO();
+		} else {
+			throw new Exception("Beneficiário não encontrado");
+		}
 	}
 
 }
