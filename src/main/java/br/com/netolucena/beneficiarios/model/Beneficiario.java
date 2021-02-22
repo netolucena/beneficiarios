@@ -95,7 +95,7 @@ public class Beneficiario {
 	}
 	
 	public BeneficiarioDTO toDTO(){
-		BeneficiarioDTO dto = new BeneficiarioDTO(this.nome, this.cpf, this.email, this.saldoAposentadoria, this.qtdAnosRecebimentoAposentadoria);
+		BeneficiarioDTO dto = new BeneficiarioDTO(this.id, this.nome, this.cpf, this.email, this.saldoAposentadoria, null, this.qtdAnosRecebimentoAposentadoria);
         return dto;
     }
 		
