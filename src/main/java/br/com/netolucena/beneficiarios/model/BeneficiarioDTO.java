@@ -9,8 +9,10 @@ public class BeneficiarioDTO {
 	private String email;
 	private BigDecimal saldoAposentadoria;
 	private Integer qtdAnosRecebimentoAposentadoria;
-	
-	
+		
+	public BeneficiarioDTO() {
+		
+	}
 	
 	public BeneficiarioDTO(String nome, String cpf, String email, BigDecimal saldoAposentadoria, Integer qtdAnosRecebimentoAposentadoria) {
 		super();
