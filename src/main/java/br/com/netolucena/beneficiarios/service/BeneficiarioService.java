@@ -13,7 +13,7 @@ public interface BeneficiarioService {
 	
     public List<BeneficiarioDTO> findAll();
     
-    public BeneficiarioDTO findById(Long id) throws Exception;
+    public BeneficiarioDTO findById(String id) throws Exception;
     
     public BeneficiarioDTO findByNome(String nome) throws Exception;
         

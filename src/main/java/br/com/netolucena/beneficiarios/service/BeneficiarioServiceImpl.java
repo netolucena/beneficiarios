@@ -29,10 +29,11 @@ public class BeneficiarioServiceImpl implements BeneficiarioService  {
 	}
 
 	@Override
-	public BeneficiarioDTO findById(Long id) {
-		Optional<Beneficiario> result = repository.findById(id);
+	public BeneficiarioDTO findById(String id) {
+		Long idStr = new Long(id);
+		Optional<Beneficiario> result = repository.findById(idStr);
 		if (result.isPresent()) {
-			result.get().toDTO();
+			return result.get().toDTO();			
 		}
 		return null;
 	}
