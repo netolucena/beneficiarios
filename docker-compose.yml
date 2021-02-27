@@ -1,7 +1,14 @@
 version: '3.7'
 
 services:
-    rabbitmq:
+  db_postgres:
+    image: postgres
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: mysecretpassword
+
+  rabbitmq:
     image: rabbitmq:3-management
     ports:
       - 15672:15672
