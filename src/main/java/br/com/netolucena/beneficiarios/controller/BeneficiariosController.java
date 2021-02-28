@@ -1,6 +1,7 @@
 package br.com.netolucena.beneficiarios.controller;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,15 @@ public class BeneficiariosController {
 	@GetMapping
 	@CrossOrigin
     public ResponseEntity<List<BeneficiarioDTO>> findAll(){
-        return ResponseEntity.ok(service.findAll());
+		List<BeneficiarioDTO> result = service.findAll();
+		
+		//Atualizando o valor mensal de aposentadoria
+		for (BeneficiarioDTO dto : result) {
+			BigDecimal qtdMeses = new BigDecimal(dto.getQtdAnosRecebimentoAposentadoria() * 12);
+			dto.setValorMensal(dto.getSaldoAposentadoria().divide(qtdMeses, RoundingMode.HALF_UP));			
+		}
+		
+        return ResponseEntity.ok(result);
     }
 	
 	@GetMapping("/{id}")
