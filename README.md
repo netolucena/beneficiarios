@@ -14,6 +14,7 @@ Buscar todos os beneficiários(GET): ec2-3-134-107-142.us-east-2.compute.amazona
 
 
 Adicionar Beneficiário (POST): ec2-3-134-107-142.us-east-2.compute.amazonaws.com:8080/beneficiarios
+
 Exemplo de parâmetro body 
 {
   "nome": "Neto Lucena",
