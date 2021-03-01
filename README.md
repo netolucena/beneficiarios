@@ -1,4 +1,4 @@
-# beneficiarios
+# Beneficiarios
 
 Microserviço responsável pelo cadastro dos Beneficiário (Clientes) da aposentadoria.
 
